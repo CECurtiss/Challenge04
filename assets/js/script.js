@@ -4,19 +4,23 @@ var startQuizBtn = document.querySelector("#startquizbtn");
 var highScores = document.querySelector("#highscores");
 
 
-function showHighScores(){
+
+highScores.addEventListener("click", function({
+    
+
+})
+
     
     
     // hide all body text and load local storage
-}
-highScores.addEventListener("click", showHighScores());
 
 
-function beginQuiz() {
-startQuizBtn.addEventListener("click",function() {
+startQuizBtn.addEventListener("click",function( {
+
+
 // function to hide original text and show question 1
 } )
-}
+
 // create display hide for main screen
 
 // create timer function
