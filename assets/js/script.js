@@ -14,7 +14,7 @@ var questionEight = document.querySelector(".questioneight");
 
 var questionArray = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight];
 var questionList = document.querySelector(".questionList");
-var timeLeft = 60;
+var timeLeft = 75;
 
 
 var toggleCorrect = document.querySelector("#correct");
@@ -58,6 +58,7 @@ for ( var i=0; i< correctAnswer.length; i++){
     incorrectAnswer[i].addEventListener("click", function(){
         toggleIncorrect.style.display = "block";
         toggleCorrect.style.display = "none";
+        timeLeft -= 10;
         hideQuestion();
         currentQuestion ++;
         showQuestion();
@@ -69,7 +70,8 @@ function timerStart () {
    var timer = setInterval(function(){
         if (timeLeft === 0){
             clearInterval(timer);
-            
+            alert("No time left!");
+
         }
         timeLeft -= 1;
         timerEl.textContent = timeLeft;
