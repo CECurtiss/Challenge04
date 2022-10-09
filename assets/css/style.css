@@ -41,3 +41,11 @@
 .questioneight {
     display:none;
 }
+
+#correct {
+    display:none;
+}
+
+#incorrect {
+    display:none;
+}

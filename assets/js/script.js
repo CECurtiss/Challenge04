@@ -13,59 +13,64 @@ var questionSeven = document.querySelector(".questionseven");
 var questionEight = document.querySelector(".questioneight");
 
 var questionArray = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight];
-
+var questionList = document.querySelector(".questionList");
 var timeLeft = 60;
 
-var correctAnswer = document.querySelector('.correct');
-var incorrectAnswer = document.querySelector('.incorrect');
 
+var toggleCorrect = document.querySelector("#correct");
+var toggleIncorrect = document.querySelector("#incorrect");
+var currentQuestion = 0;
 // highScores.addEventListener("click", function({
     
-
-// })
-
+    
+    // })
+    
     
     
     // hide all body text and load local storage
+    
+    function shuffle(questionArray){
+        questionArray.sort(() => Math.random() - 0.5);
+    }
+    
+    startQuizBtn.addEventListener("click",function() {
+        timerStart();
+        shuffle(questionArray);
+        titleBoxEl.style.display = "none";
+        
+        var correctAnswer = document.querySelectorAll('.correct');
+        var incorrectAnswer = document.querySelectorAll('.incorrect');
+    function showQuestion() { questionArray[currentQuestion].style.display = "block";
+    }
+    function hideQuestion() { questionArray[currentQuestion].style.display = "none";}
 
-function shuffle(questionArray){
-    questionArray.sort(() => Math.random() - 0.5);
-}
+    showQuestion();
 
-startQuizBtn.addEventListener("click",function() {
-    timerStart();
-    shuffle(questionArray);
-    titleBoxEl.style.display = "none";
+for ( var i=0; i< correctAnswer.length; i++){
+    correctAnswer[i].addEventListener("click", function(){
+        toggleIncorrect.style.display = "none";
+        toggleCorrect.style.display = "block";
+        hideQuestion();
+        currentQuestion ++;
+        showQuestion();
+})}
+    for ( var i=0; i< incorrectAnswer.length; i++)  {
+    incorrectAnswer[i].addEventListener("click", function(){
+        toggleIncorrect.style.display = "block";
+        toggleCorrect.style.display = "none";
+        hideQuestion();
+        currentQuestion ++;
+        showQuestion();
+})}
+    })
 
-    function showQuestionOne() { questionArray[0].style.display = "block";}
-    function hideQuestion() { questionArray[0].style.display = "none";}
-
-    showQuestionOne();
-
-    correctAnswer.addEventListener("click", function(){
-})
-    //  questionArray[1].style.display = "none";
-    //  if (correctAnswer) {
-    //     questionArray[1].style.display = "none";
-    //     // display correct
-    //  } else {
-    //     questionArray[1].style.display = "none";
-    //     // take time off clock
-    //     // display incorrect
-    //  }
-
-
-
-
-    // for (let j = 0; j < questionArray.length; j++) {
-    //     questionArray[j]
-    // }
-    // questionArray[j] = document.querySelector(questionArray[j]).style.display = "block";
-  
-});
 
 function timerStart () {
-    setInterval(function(){
+   var timer = setInterval(function(){
+        if (timeLeft === 0){
+            clearInterval(timer);
+            
+        }
         timeLeft -= 1;
         timerEl.textContent = timeLeft;
     },1000)
@@ -79,9 +84,3 @@ function timerStart () {
 //     clearInterval(timeLeft);
 // }
 
-
-// function to hide original text and show question 1
-
-
-
-// create buttons for answers and link them to js using if statement
