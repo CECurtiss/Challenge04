@@ -16,6 +16,9 @@ var questionArray = [questionOne, questionTwo, questionThree, questionFour, ques
 
 var timeLeft = 60;
 
+var correctAnswer = document.querySelector('.correct');
+var incorrectAnswer = document.querySelector('.incorrect');
+
 // highScores.addEventListener("click", function({
     
 
@@ -30,33 +33,51 @@ function shuffle(questionArray){
 }
 
 startQuizBtn.addEventListener("click",function() {
-    
+    timerStart();
     shuffle(questionArray);
     titleBoxEl.style.display = "none";
-    for (let i = 0; i < questionArray.length; i++) {
-        questionArray[i]= document.querySelector(questionArray[i]).style.display = "block";
-    }
-    // questionArray[i] = document.querySelector(questionArray[i]).style.display = "block";
+
+    function showQuestionOne() { questionArray[0].style.display = "block";}
+    function hideQuestion() { questionArray[0].style.display = "none";}
+
+    showQuestionOne();
+
+    correctAnswer.addEventListener("click", function(){
+})
+    //  questionArray[1].style.display = "none";
+    //  if (correctAnswer) {
+    //     questionArray[1].style.display = "none";
+    //     // display correct
+    //  } else {
+    //     questionArray[1].style.display = "none";
+    //     // take time off clock
+    //     // display incorrect
+    //  }
 
 
-    // start array
+
+
+    // for (let j = 0; j < questionArray.length; j++) {
+    //     questionArray[j]
+    // }
+    // questionArray[j] = document.querySelector(questionArray[j]).style.display = "block";
   
 });
+
+function timerStart () {
+    setInterval(function(){
+        timeLeft -= 1;
+        timerEl.textContent = timeLeft;
+    },1000)
+    
+}
+
 
 // for (let i = 60; i--) {
 //     setInterval(i = 60, i--);
 // } else {
 //     clearInterval(timeLeft);
 // }
-// function timerStart () {
-//     setInterval(function(){
-//    timeLeft -= 1;
-//    timerEl.textContent = timeLeft;
-//     },1000)
-  
-// }
-
-
 
 
 // function to hide original text and show question 1
