@@ -20,14 +20,11 @@ var timeLeft = 75;
 var toggleCorrect = document.querySelector("#correct");
 var toggleIncorrect = document.querySelector("#incorrect");
 var currentQuestion = 0;
+var playerScore = document.querySelector("#playerscore");
 // highScores.addEventListener("click", function({
+     // })
     
-    
-    // })
-    
-    
-    
-    // hide all body text and load local storage
+       // hide all body text and load local storage
     
     function shuffle(questionArray){
         questionArray.sort(() => Math.random() - 0.5);
@@ -50,9 +47,10 @@ for ( var i=0; i< correctAnswer.length; i++){
     correctAnswer[i].addEventListener("click", function(){
         toggleIncorrect.style.display = "none";
         toggleCorrect.style.display = "block";
-        hideQuestion();
-        currentQuestion ++;
-        showQuestion();
+            hideQuestion();
+            currentQuestion ++;
+            showQuestion();
+   
 })}
     for ( var i=0; i< incorrectAnswer.length; i++)  {
     incorrectAnswer[i].addEventListener("click", function(){
@@ -61,7 +59,7 @@ for ( var i=0; i< correctAnswer.length; i++){
         timeLeft -= 10;
         hideQuestion();
         currentQuestion ++;
-        showQuestion();
+        showQuestion();     
 })}
     })
 
@@ -70,19 +68,16 @@ function timerStart () {
    var timer = setInterval(function(){
         if (timeLeft === 0){
             clearInterval(timer);
-            alert("No time left!");
-
-        }
+         }
         timeLeft -= 1;
         timerEl.textContent = timeLeft;
+        // if (currentQuestion > currentQuestion.length) {
+        //     clearInterval(timer);
+        // }
     },1000)
     
 }
 
 
-// for (let i = 60; i--) {
-//     setInterval(i = 60, i--);
-// } else {
-//     clearInterval(timeLeft);
-// }
+
 
