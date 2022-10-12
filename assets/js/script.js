@@ -15,18 +15,22 @@ var questionEight = document.querySelector(".questioneight");
 var questionArray = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight];
 var questionList = document.querySelector(".questionList");
 var timeLeft = 75;
-
+var scoreDisplay = document.querySelector("#scoredisplay");
 
 var toggleCorrect = document.querySelector("#correct");
 var toggleIncorrect = document.querySelector("#incorrect");
 var currentQuestion = 0;
 var playerScore = document.querySelector("#playerscore");
-// highScores.addEventListener("click", function({
-     // })
-    
-       // hide all body text and load local storage
 var timer;
-    function shuffle(questionArray){
+var submitScoreBtn = document.querySelector('#submitscorebtn');
+
+
+function retrieveHighScore() {
+    var playerInitials = localStorage.getItem("playerinitials");
+    var playerscore = localStorage.getItem("playerscore");    
+}
+
+function shuffle(questionArray){
         questionArray.sort(() => Math.random() - 0.5);
     }
     
@@ -38,14 +42,17 @@ var timer;
         
         var correctAnswer = document.querySelectorAll('.correct');
         var incorrectAnswer = document.querySelectorAll('.incorrect');
+
     function showQuestion() { 
         if (currentQuestion < questionArray.length) {
             questionArray[currentQuestion].style.display = "block";
         } else { 
+            playerScore.textContent= timeLeft;
             clearInterval(timer);
-            console.log("game over");
-            // insert high scores display
+            console.log(timeLeft);
+            scoreDisplay.style.display = "block";
         }}
+        
     function hideQuestion() { questionArray[currentQuestion].style.display = "none";}
 
     showQuestion();
@@ -63,7 +70,9 @@ for ( var i=0; i< correctAnswer.length; i++){
     incorrectAnswer[i].addEventListener("click", function(){
         toggleIncorrect.style.display = "block";
         toggleCorrect.style.display = "none";
-        timeLeft -= 10;
+        if (timeLeft > 10){
+            timeLeft -= 10;}
+            else {timeLeft =0}
         hideQuestion();
         currentQuestion ++;
         showQuestion();     
@@ -76,10 +85,15 @@ function timerStart () {
        timerEl.textContent = timeLeft;
         if (timeLeft <= 0){
             clearInterval(timer);
+            timerEl.textContent = "";
          }
     }
     
 
-
+submitScoreBtn.addEventListener("click", function(){
+    var playerInitials = document.querySelector('#initials').value;
+    localStorage.setItem("playerinitials", playerInitials);
+    localStorage.setItem("playerscore", timeLeft);
+})
 
 
