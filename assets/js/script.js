@@ -4,6 +4,7 @@ var startQuizBtn = document.querySelector("#startquizbtn");
 var highScoresBtn = document.querySelector("#highscores");
 var highScoresList = document.querySelector('.highscorelist');
 var returnToGameBtn = document.querySelector('#returntogamebtn');
+var highScoreEnter = document.querySelector(".highscoreenter");
 
 var questionOne = document.querySelector(".questionone");
 var questionTwo = document.querySelector(".questiontwo");
@@ -29,10 +30,12 @@ var submitScoreBtn = document.querySelector('#submitscorebtn');
 highScoresBtn.addEventListener("click", function() {
     titleBoxEl.style.display = "none";
     highScoresList.style.display = "block";
+    highScoreEnter.style.display = "block";
     returnToGameBtn.style.display = "block";
     returnToGameBtn.addEventListener("click",function(){
         titleBoxEl.style.display = "block";
         highScoresList.style.display = "none";
+        highScoreEnter.style.display = "none";
         returnToGameBtn.style.display = "none";
     });
 
@@ -108,4 +111,8 @@ submitScoreBtn.addEventListener("click", function(){
     highScoresBtn.style.display = "block";
 })
 
-
+function postHighScores(){
+    var recentScore = JSON.parse(localStorage.getItem("playerinitials","playerscore"));
+    document.getElementByClass("highscoreenter").innerHTML = recentScore.playerinitals;
+    document.getElementByClass("highscoreenter").innerHTML = recentScore.playerscore;
+}
