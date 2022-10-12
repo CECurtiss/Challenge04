@@ -1,7 +1,9 @@
 var timerEl = document.querySelector("#timer");
 var titleBoxEl = document.querySelector(".titlebox");
 var startQuizBtn = document.querySelector("#startquizbtn");
-var highScores = document.querySelector("#highscores");
+var highScoresBtn = document.querySelector("#highscores");
+var highScoresList = document.querySelector('.highscorelist');
+var returnToGameBtn = document.querySelector('#returntogamebtn');
 
 var questionOne = document.querySelector(".questionone");
 var questionTwo = document.querySelector(".questiontwo");
@@ -24,11 +26,19 @@ var playerScore = document.querySelector("#playerscore");
 var timer;
 var submitScoreBtn = document.querySelector('#submitscorebtn');
 
+highScoresBtn.addEventListener("click", function() {
+    titleBoxEl.style.display = "none";
+    highScoresList.style.display = "block";
+    returnToGameBtn.style.display = "block";
+    returnToGameBtn.addEventListener("click",function(){
+        titleBoxEl.style.display = "block";
+        highScoresList.style.display = "none";
+        returnToGameBtn.style.display = "none";
+    });
 
-function retrieveHighScore() {
-    var playerInitials = localStorage.getItem("playerinitials");
-    var playerscore = localStorage.getItem("playerscore");    
-}
+});
+
+
 
 function shuffle(questionArray){
         questionArray.sort(() => Math.random() - 0.5);
@@ -39,6 +49,7 @@ function shuffle(questionArray){
         timerStart();
         shuffle(questionArray);
         titleBoxEl.style.display = "none";
+        highScoresBtn.style.display = "none";
         
         var correctAnswer = document.querySelectorAll('.correct');
         var incorrectAnswer = document.querySelectorAll('.incorrect');
@@ -85,15 +96,16 @@ function timerStart () {
        timerEl.textContent = timeLeft;
         if (timeLeft <= 0){
             clearInterval(timer);
-            timerEl.textContent = "";
+            timerEl.textContent = "";           
          }
     }
     
 
 submitScoreBtn.addEventListener("click", function(){
     var playerInitials = document.querySelector('#initials').value;
-    localStorage.setItem("playerinitials", playerInitials);
-    localStorage.setItem("playerscore", timeLeft);
+    localStorage.setItem("playerinitials", JSON.stringify(playerInitials));
+    localStorage.setItem("playerscore", JSON.stringify(timeLeft));
+    highScoresBtn.style.display = "block";
 })
 
 

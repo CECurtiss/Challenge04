@@ -77,3 +77,11 @@
     margin:auto;
 
 }
+
+.highscorelist {
+    display:none;
+}
+
+#returntogamebtn {
+    display:none;
+}
