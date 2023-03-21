@@ -1,126 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "assets\css\style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets\css\style.css" />
     <title>Coding Quiz Game</title>
-</head>
+  </head>
 
-<header>
-    <button id = highscores>High Scores</button>
-    <div>
-        <p id="timer">75</p>
-    </div>
-</header>
-<body style = "background:lavender">
-    <div class = titlebox>
-        <h1>Coding Quiz Game</h1>
-        <p>Answer questions as quickly as possible given the options provided. Incorrect answers will reduce remaining time left and count against your score. Good luck!</p>
-        <button id = startquizbtn>Begin!</button>
-    </div>
-
-    <div id = "questionlist">
-         <div class="questionone">
-            <h2>Which of the following is a curly bracket? </h2>
-                <button class = "incorrect">A. [</button>
-                <button class = "correct">B. }</button>
-                <button class = "incorrect">C. (</button>
-                <button class = "incorrect">D. $</button>
-         </div>
-
-         <div class="questiontwo">
-            <h2>What does the "C" in CSS stand for?</h2>
-             <button class = "incorrect">A. Click</button>
-             <button class = "incorrect">B. Cache</button>
-             <button class = "incorrect">C. Current</button>
-             <button class = "correct">D. Cascading</button>
-         </div>
-
-         <div class="questionthree">
-            <h2>What method would you use to combine arrays?</h2>
-             <button class = "correct">A. Concat</button>
-             <button class = "incorrect">B. Merge</button>
-             <button class = "incorrect">C. Puttogether</button>
-             <button class = "incorrect">D. Shuffle</button>
-        </div>
-
-        <div class="questionfour">
-            <h2>In which section should you include your external CSS link?</h2>
-             <button class = "incorrect">A. Body</button>
-             <button class = "incorrect">B. Footer</button>
-             <button class = "correct">C. Head</button>
-             <button class = "incorrect">D. Armor</button>
-         </div>
-
-        <div class="questionfive">
-             <h2>When entering 4 border values for a border in CSS, what is the correct order?</h2>
-                <button class = "incorrect">A. Top, Left, Right, Bottom</button>
-                 <button class = "incorrect">B. Top, Bottom, Left, Right</button>
-                 <button class = "incorrect">C. Left, Top, Right, Bottom</button>
-                 <button class = "correct">D. Top, Right, Bottom, Left</button>
-        </div>
-
-         <div class="questionsix">
-             <h2>What does the "a" tag stand for in HTML?</h2>
-             <button class = "correct">A. Anchor</button>
-             <button class = "incorrect">B. Alpha</button>
-              <button class = "incorrect">C. Arrest</button>
-              <button class = "incorrect">D. Action</button>
-            </div>
-            
-            <div class="questionseven">
-                <h2>Which of the following methods would you use to select a certain class in your HTML?</h2>
-                 <button class = "incorrect">A. getThatClass</button>
-                 <button class = "correct">B. getElementByClass</button>
-                 <button class = "incorrect">C. grabClass</button>
-                 <button class = "incorrect">D. fetchClass</button>
-                </div>
-                
-                <div class="questioneight">
-                    <h2>What does HTML stand for?</h2>
-                    <button class = "incorrect">A. Have Tacos, My Love</button>
-                    <button class = "incorrect">B. Hard To Make Laugh</button>
-                    <button class = "incorrect">C. Honest Technical Micro Lists</button>
-                    <button class = "correct">D. Hypertext Markup Language</button>
-                </div>
-                
-            </div>
-            
-    <div id = "scoredisplay">
-         <h2>Finished!</h2>
-         <h3>Your Score:<span id ="playerscore">0</span></h3>
-            <form>
-                <label for="Initials">Enter Initials Here:</label>
-                <input type="text" id="initials" name="initials">
-                <button id ="submitscorebtn">Submit</button>
-            </form>
+  <header>
+    <button id="highscores">High Scores</button>
+    <div id="timer">75</div>
+  </header>
+  <body style="background: lavender">
+    <div class="titlebox">
+      <h1>Coding Quiz Game</h1>
+      <p>
+        Answer questions as quickly as possible given the options provided.
+        Incorrect answers will reduce remaining time left and count against your
+        score. Good luck!
+      </p>
+      <button id="startquizbtn">Begin!</button>
     </div>
 
-    <div id = "correct">
-         <h3>Correct</h3>
+    <div id="questionlist">
+      <div class="questionone">
+        <h2>Which of the following is a curly bracket?</h2>
+        <button class="incorrect">A. [</button>
+        <button class="correct">B. }</button>
+        <button class="incorrect">C. (</button>
+        <button class="incorrect">D. $</button>
+      </div>
+
+      <div class="questiontwo">
+        <h2>What does the "C" in CSS stand for?</h2>
+        <button class="incorrect">A. Click</button>
+        <button class="incorrect">B. Cache</button>
+        <button class="incorrect">C. Current</button>
+        <button class="correct">D. Cascading</button>
+      </div>
+
+      <div class="questionthree">
+        <h2>What method would you use to combine arrays?</h2>
+        <button class="correct">A. Concat</button>
+        <button class="incorrect">B. Merge</button>
+        <button class="incorrect">C. Puttogether</button>
+        <button class="incorrect">D. Shuffle</button>
+      </div>
+
+      <div class="questionfour">
+        <h2>In which section should you include your external CSS link?</h2>
+        <button class="incorrect">A. Body</button>
+        <button class="incorrect">B. Footer</button>
+        <button class="correct">C. Head</button>
+        <button class="incorrect">D. Armor</button>
+      </div>
+
+      <div class="questionfive">
+        <h2>
+          When entering 4 border values for a border in CSS, what is the correct
+          order?
+        </h2>
+        <button class="incorrect">A. Top, Left, Right, Bottom</button>
+        <button class="incorrect">B. Top, Bottom, Left, Right</button>
+        <button class="incorrect">C. Left, Top, Right, Bottom</button>
+        <button class="correct">D. Top, Right, Bottom, Left</button>
+      </div>
+
+      <div class="questionsix">
+        <h2>What does the "a" tag stand for in HTML?</h2>
+        <button class="correct">A. Anchor</button>
+        <button class="incorrect">B. Alpha</button>
+        <button class="incorrect">C. Arrest</button>
+        <button class="incorrect">D. Action</button>
+      </div>
+
+      <div class="questionseven">
+        <h2>
+          Which of the following methods would you use to select a certain class
+          in your HTML?
+        </h2>
+        <button class="incorrect">A. getThatClass</button>
+        <button class="correct">B. getElementByClass</button>
+        <button class="incorrect">C. grabClass</button>
+        <button class="incorrect">D. fetchClass</button>
+      </div>
+
+      <div class="questioneight">
+        <h2>What does HTML stand for?</h2>
+        <button class="incorrect">A. Have Tacos, My Love</button>
+        <button class="incorrect">B. Hard To Make Laugh</button>
+        <button class="incorrect">C. Honest Technical Micro Lists</button>
+        <button class="correct">D. Hypertext Markup Language</button>
+      </div>
     </div>
 
-    <div id = "incorrect">
-        <h3>Incorrect</h3>
+    <div id="scoredisplay">
+      <h2>Finished!</h2>
+      <h3>Your Score:<span id="playerscore">0</span></h3>
+      <form>
+        <label for="Initials">Enter Initials Here:</label>
+        <input type="text" id="initials" name="initials" />
+        <button id="submitscorebtn">Submit</button>
+      </form>
+    </div>
+
+    <div id="correct">
+      <h3>Correct</h3>
+    </div>
+
+    <div id="incorrect">
+      <h3>Incorrect</h3>
     </div>
 
     <div class="highscorelist">
-        <h1>High Scores</h1>
-        <ul class = "highscoreenter">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-        <button id = "returntogamebtn">Back to Game</button>
+      <h1>High Scores</h1>
+      <ul class="highscoreenter"></ul>
+      <button id="returntogamebtn">Back to Game</button>
     </div>
 
     <script src="assets\js\script.js"></script>
-</body>
+  </body>
 </html>

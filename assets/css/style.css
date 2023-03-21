@@ -1,5 +1,8 @@
 #timer {
     float:right;
+    margin-right: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .titlebox {
@@ -59,6 +62,9 @@
     border-radius:10px;
     text-align:center;
     margin:10px;
+    padding: 10px;
+    width: 50%;
+    margin: 5px, auto, 5px, auto;
 }
 
 #questionlist div {
@@ -75,6 +81,7 @@
     width:75%;
     text-align:center;
     margin:auto;
+    padding: 3px;
 
 }
 
@@ -88,4 +95,37 @@
 
 .highscoreenter {
     display:none;
+}
+
+#startquizbtn {
+    margin-bottom: 5px;
+}
+
+#startquizbtn:hover {
+    background-color:lightblue;
+    color:purple;
+}
+
+#questionlist div button:hover {
+    background-color:purple;
+    color:lightblue;
+}
+
+#returntogamebtn:hover {
+    background-color:purple;
+    color:lightblue;
+}
+
+#highscores:hover {
+    background-color:purple;
+    color:lightblue;
+}
+
+#submitscorebtn:hover {
+    background-color:purple;
+    color:lightblue;
+}
+
+#highscores {
+    margin-bottom: 5px;
 }
