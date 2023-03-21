@@ -35,7 +35,6 @@ highScoresBtn.addEventListener("click", function() {
     returnToGameBtn.addEventListener("click",function(){
         titleBoxEl.style.display = "block";
         highScoresList.style.display = "none";
-        highScoreEnter.style.display = "none";
         returnToGameBtn.style.display = "none";
     });
 
@@ -104,7 +103,8 @@ function timerStart () {
     }
     
 
-submitScoreBtn.addEventListener("click", function(){
+submitScoreBtn.addEventListener("click", function(e){
+    e.preventDefault()
     var playerInitials = document.querySelector('#initials').value;
     localStorage.setItem("playerinitials", JSON.stringify(playerInitials));
     localStorage.setItem("playerscore", JSON.stringify(timeLeft));
