@@ -26,20 +26,24 @@ var currentQuestion = 0;
 var playerScore = document.querySelector("#playerscore");
 var timer;
 var submitScoreBtn = document.querySelector('#submitscorebtn');
+var highScoreArray = JSON.parse(window.localStorage.getItem('highscores')) || [];
 
 highScoresBtn.addEventListener("click", function() {
     titleBoxEl.style.display = "none";
     highScoresList.style.display = "block";
     highScoreEnter.style.display = "block";
     returnToGameBtn.style.display = "block";
-    returnToGameBtn.addEventListener("click",function(){
-        titleBoxEl.style.display = "block";
-        highScoresList.style.display = "none";
-        returnToGameBtn.style.display = "none";
-    });
-
+    
 });
 
+returnToGameBtn.addEventListener("click",function(){
+    location.reload()
+    // titleBoxEl.style.display = "block";
+    // highScoresList.style.display = "none";
+    // returnToGameBtn.style.display = "none";
+    // highScoreEnter.style.display = "none";
+    // highScoresBtn.style.display = "block";
+});
 
 
 function shuffle(questionArray){
@@ -64,6 +68,7 @@ function shuffle(questionArray){
             clearInterval(timer);
             console.log(timeLeft);
             scoreDisplay.style.display = "block";
+            timerEl.style.display = 'none'
         }}
         
     function hideQuestion() { questionArray[currentQuestion].style.display = "none";}
@@ -103,16 +108,26 @@ function timerStart () {
     }
     
 
+
 submitScoreBtn.addEventListener("click", function(e){
     e.preventDefault()
     var playerInitials = document.querySelector('#initials').value;
-    localStorage.setItem("playerinitials", JSON.stringify(playerInitials));
-    localStorage.setItem("playerscore", JSON.stringify(timeLeft));
-    highScoresBtn.style.display = "block";
+    var playerScore = {
+        playerinitials: playerInitials,
+        playerscore: timeLeft
+    }
+    highScoreArray.push(playerScore);
+    localStorage.setItem("highscores", JSON.stringify(highScoreArray));
+    scoreDisplay.style.display = "none";
+    highScoresList.style.display = "block";
+    highScoreEnter.style.display = "block";
+    returnToGameBtn.style.display = "block";
+    postHighScores();
 })
 
 function postHighScores(){
     var recentScore = JSON.parse(localStorage.getItem("playerinitials","playerscore"));
+
     document.getElementByClass("highscoreenter").innerHTML = recentScore.playerinitals;
     document.getElementByClass("highscoreenter").innerHTML = recentScore.playerscore;
 }
