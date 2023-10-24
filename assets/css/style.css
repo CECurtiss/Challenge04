@@ -5,10 +5,11 @@
     font-weight: bold;
 }
 
-.titlebox {
+.titlebox { 
     border: 3px solid blue;
     display:block;
-    margin:auto;
+    margin: auto;
+    margin-top: 300px;
     text-align:center;
     width:50%
 }
@@ -91,6 +92,9 @@
 
 #returntogamebtn {
     display:none;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .highscoreenter {
@@ -129,3 +133,19 @@
 #highscores {
     margin-bottom: 5px;
 }
+
+.highscorelist {
+    margin-top: 300px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: dashed;
+    border-color: purple;
+    text-align: center;
+    list-style-type: none;
+}
+
+.highscorelist  ul{
+    list-style-type: number;
+}
+

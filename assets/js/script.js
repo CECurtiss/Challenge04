@@ -38,6 +38,8 @@ var submitScoreBtn = document.querySelector("#submitscorebtn");
 var highScoreArray =
   JSON.parse(window.localStorage.getItem("highscores")) || [];
 
+  timerEl.style.display = "none";
+  
 highScoresBtn.addEventListener("click", function () {
   titleBoxEl.style.display = "none";
   highScoresList.style.display = "block";
@@ -109,6 +111,7 @@ startQuizBtn.addEventListener("click", function () {
 });
 
 function timerStart() {
+  timerEl.style.display = "block";
   timeLeft -= 1;
   timerEl.textContent = timeLeft;
   if (timeLeft <= 0) {
@@ -134,6 +137,9 @@ submitScoreBtn.addEventListener("click", function (e) {
 });
 
 function postHighScores() {
+  toggleIncorrect.style.display = "none";
+  toggleCorrect.style.display = "none";
+  timerEl.style.display = "none";
   highScoreArray.sort(function (a, b) {
     return b.playerscore - a.playerscore;
   });
